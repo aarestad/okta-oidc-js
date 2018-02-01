@@ -100,7 +100,7 @@ export class OktaAuthService {
      * @param fromUri
      * @param additionalParams
      */
-    loginRedirect(fromUri: String, additionalParams?: object) {
+    loginRedirect(fromUri: string, additionalParams?: object) {
       // Set the from URI
       this.setFromUri(fromUri || '/');
 
@@ -154,7 +154,7 @@ export class OktaAuthService {
      * tokens stored in the tokenManager.
      * @param uri 
      */
-    async logout(uri?: String) {
+    async logout(uri?: string) {
       this.oktaAuth.tokenManager.clear();
       await this.oktaAuth.signOut();
       this.router.navigate([uri || '/']);
@@ -164,7 +164,7 @@ export class OktaAuthService {
      * Scrub scopes to ensure 'openid' is included
      * @param scopes
      */
-    scrubScopes(scopes) {
+    scrubScopes(scopes: string) {
       if (!scopes) {
         return 'openid email';
       }
